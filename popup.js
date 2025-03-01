@@ -7,16 +7,24 @@ document.addEventListener('DOMContentLoaded', function () {
     chrome.storage.sync.get(['enabled', 'blurAmount'], function (data) {
         // Set defaults if not found
         const isEnabled = data.enabled !== undefined ? data.enabled : true;
-        const blurAmount = data.blurAmount || '8px';
+        const blurAmount = data.blurAmount;
 
         enableBlurCheckbox.checked = isEnabled;
         blurAmountSlider.value = parseInt(blurAmount);
-        blurValueDisplay.textContent = `${blurAmountSlider.value}px`;
+        blurValueDisplay.textContent = `${blurAmountSlider.value * 5}%`;
+
+        // Set initial UI state
+        blurAmountSlider.disabled = !isEnabled;
+        blurAmountSlider.parentElement.style.opacity = isEnabled ? '1' : '0.5';
     });
 
     // Toggle blur on/off
     enableBlurCheckbox.addEventListener('change', function () {
         const isEnabled = this.checked;
+
+        // Update UI state
+        blurAmountSlider.disabled = !isEnabled;
+        blurAmountSlider.parentElement.style.opacity = isEnabled ? '1' : '0';
 
         chrome.storage.sync.set({ enabled: isEnabled });
 
