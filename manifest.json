@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "LinkedIn Cringe Filter",
+    "name": "LinkedIn Brainrot Filter",
     "version": "1.0",
-    "description": "Blurs all posts on LinkedIn to reduce the cringe factor",
+    "description": "Blurs all posts on LinkedIn to reduce the LinkedIn Brain Rot Effect",
     "icons": {
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",
