@@ -1,0 +1,12 @@
+:root {
+    --linkedin-blur-amount: 8px;
+}
+
+.linkedin-blur-applied {
+    filter: blur(var(--linkedin-blur-amount));
+    transition: filter 0.3s ease;
+}
+
+.linkedin-blur-applied.linkedin-blur-hover {
+    filter: blur(0);
+}
